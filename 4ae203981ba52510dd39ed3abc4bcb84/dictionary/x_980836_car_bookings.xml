@@ -9,7 +9,7 @@
         </element>
         <element label="End Time" mandatory="true" max_length="40" name="end_time" type="glide_date_time"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="BookingID" max_length="40" name="number" type="string"/>
-        <element choice="1" label="SpotID" max_length="32" name="spotid" reference="x_980836_car_parkingspots" reference_qual="active=true&#13;&#10;" reference_qual_condition="active=true" type="reference">
+        <element choice="1" label="Availability" max_length="32" name="spotid" reference="x_980836_car_parkingspots" type="reference">
             <choice/>
         </element>
         <element choice="1" label="StartTime" max_length="40" name="starttime" type="choice">

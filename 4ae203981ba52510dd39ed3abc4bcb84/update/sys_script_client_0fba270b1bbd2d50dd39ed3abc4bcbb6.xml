@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Times and SpotId </name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    populateTimes();
+}
+
+function populateTimes() {
+    var choiceField = g_form.getControl('availability');
+    var array = [];
+
+	var date = new Date();
+  date.setHours(0, 0, 0, 0); // Set the time to 12am
+
+  // Generate time blocks in 3-hour increments from 12am to 12am
+  for (var i = 0; i < 8; i++) {
+    var startTime = date.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
+    date.setHours(date.getHours() + 3); // Increment the time by 3 hours
+    var endTime = date.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
+
+    var timeBlock = startTime + ' - ' + endTime;
+    array.push(timeBlock);
+  }
+	
+    //     // Clear existing choices
+    choiceField.options.length = 0;
+
+	// add new choice list
+	for (var i = 0; i < array.length; i++) {
+		var choiceOption = new Option(array[i], array[i]);
+		choiceField.options.add(choiceOption);
+	}
+}
+
+populateTimes();]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-30 12:53:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0fba270b1bbd2d50dd39ed3abc4bcbb6</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Times and SpotId </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_client_0fba270b1bbd2d50dd39ed3abc4bcbb6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-30 13:38:55</sys_updated_on>
+        <table>x_980836_car_parkingspots</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
