@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_980836_car_bookings</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>availabity status</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+function makeBooking() {
+  var spotId = g_form.getValue('spotid');
+  var start = g_form.getValue('starttime');
+  var end = g_form.getValue('endtime');
+
+  // Create a new booking record
+  var booking = new GlideRecord('x_980836_car_bookings');
+  booking.initialize();
+  booking.setValue('spotid', spotId);
+  booking.setValue('starttime', start);
+  booking.setValue('endtime', end);
+  booking.setValue('user', g_user.userID);
+  booking.setValue('status', 'reserved');
+  booking.insert();
+	
+
+  // Update the availability status of the parking spot
+  var parking = new GlideRecord('x_980836_car_parkingspots');
+  parking.addQuery('sysid', spotId);
+  parking.query();
+  if (parking.next()) {
+    parking.setValue('available', false);
+    parking.update();
+  }
+  
+  // Show a success message and reload the form
+  g_form.addInfoMessage('Booking successful!');
+  g_form.clearMessages();
+  g_form.setValues({ starttime: '', endtime: '' });
+  g_form.submit();
+	
+}
+
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-28 14:01:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d6a965e21bb9a950dd39ed3abc4bcbc6</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>availabity status</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_d6a965e21bb9a950dd39ed3abc4bcbc6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-28 15:02:26</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=d6a965e21bb9a950dd39ed3abc4bcbc6"/>
+</record_update>

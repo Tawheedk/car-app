@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-12 20:37:53</sys_created_on>
+        <sys_id>f8da60611ba52910dd39ed3abc4bcb4b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_980836_car_parkingspots.x_980836_car.Manager</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_security_acl display_value="x_980836_car_parkingspots">3e44471c1ba52510dd39ed3abc4bcbc8</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_f8da60611ba52910dd39ed3abc4bcb4b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-12 20:37:53</sys_updated_on>
+        <sys_user_role display_value="x_980836_car.Manager" name="x_980836_car.Manager">ca675ce51be12910dd39ed3abc4bcbb7</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

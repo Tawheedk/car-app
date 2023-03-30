@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Load End Time after start</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+  // hide end time field initially
+  g_form.setDisplay('end_time', false);
+	
+
+//   // add onChange function to start time field
+//   g_form.addOnChange('start_time', function() {
+//     // get start time value
+//     var startTime = g_form.getValue('start_time');
+//     if (startTime) {
+//       // show end time field
+//       g_form.setDisplay('end_time', true);
+      
+//       // set minimum value of end time field to start time value
+//       g_form.setMandatory('end_time', true);
+//       g_form.setDisplay('end_time', true);
+//       g_form.setDateRange('end_time', startTime, null);
+//     } else {
+//       // hide end time field
+//       g_form.setDisplay('end_time', false);
+//       g_form.setValue('end_time', '');
+//     }
+//   });
+// }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-15 11:20:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>fcd7029e1ba5e910dd39ed3abc4bcb99</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Load End Time after start</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_client_fcd7029e1ba5e910dd39ed3abc4bcb99</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-15 11:46:58</sys_updated_on>
+        <table>x_980836_car_bookings</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_client_fcd7029e1ba5e910dd39ed3abc4bcb99</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Load End Time after start&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+  // hide end time field initially
+  g_form.setDisplay('end_time', false);
+	
+
+//   // add onChange function to start time field
+//   g_form.addOnChange('start_time', function() {
+//     // get start time value
+//     var startTime = g_form.getValue('start_time');
+//     if (startTime) {
+//       // show end time field
+//       g_form.setDisplay('end_time', true);
+      
+//       // set minimum value of end time field to start time value
+//       g_form.setMandatory('end_time', true);
+//       g_form.setDisplay('end_time', true);
+//       g_form.setDateRange('end_time', startTime, null);
+//     } else {
+//       // hide end time field
+//       g_form.setDisplay('end_time', false);
+//       g_form.setValue('end_time', '');
+//     }
+//   });
+// }
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-03-15 11:20:25&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;fcd7029e1ba5e910dd39ed3abc4bcb99&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name&gt;Load End Time after start&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_fcd7029e1ba5e910dd39ed3abc4bcb99&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-03-15 11:46:58&lt;/sys_updated_on&gt;&lt;table&gt;x_980836_car_bookings&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-391790512</payload_hash>
+        <record_name>Load End Time after start</record_name>
+        <reverted_from/>
+        <source>46e203981ba52510dd39ed3abc4bcb86</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-15 11:46:58</sys_created_on>
+        <sys_id>7d2e02161be5e910dd39ed3abc4bcbf1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>186e51846930000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-15 11:46:58</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>b52e021600e5e9101d2da11c120072f1</update_guid>
+        <update_guid_history>b52e021600e5e9101d2da11c120072f1:-391790512,6deb4a9e75a5e910949be48b49e22f2e:1943938115,bfcbce9e77a5e910b2ee680a8737a8c7:159814576,5978ca9e54a5e91019ea6fcb63d108c6:-756359947,8a488e1e08a5e9105cdeb032e86f62e6:885076897,c118429ea0a5e910e13bc59230bf7467:2093921685</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-17 12:22:10</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>36de1c190f094531a5cd98cb605bba61</sys_id>
+        <sys_metadata>fcd7029e1ba5e910dd39ed3abc4bcb99</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Load End Time after start</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent display_value="Bookings">b7c44f1c1ba52510dd39ed3abc4bcb4a</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_client_fcd7029e1ba5e910dd39ed3abc4bcb99</sys_update_name>
+        <sys_update_version display_value="sys_script_client_fcd7029e1ba5e910dd39ed3abc4bcb99">7d2e02161be5e910dd39ed3abc4bcbf1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-17 12:22:10</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

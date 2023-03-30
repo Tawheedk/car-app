@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="8244071c1ba52510dd39ed3abc4bcbde" label="ParkingSpots" max_length="40" name="x_980836_car_parkingspots" type="collection">
+        <element label="Availability Status" max_length="40" name="availability_status" type="boolean"/>
+        <element choice="3" label="Location" max_length="40" name="location" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Radbroke" sequence="0" value="radbroke"/>
+            </choice>
+        </element>
+        <element display="true" label="SpotID" max_length="40" name="spotid" type="integer"/>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element inactive="true" inactive_on_update="true" label="3-Pin - tethered" sequence="0" value="3pin"/>
+                <element inactive_on_update="false" label="3-Pin - untethered" sequence="0" value="3-pin - untethered"/>
+                <element inactive_on_update="false" label="Type 2 - tethered" sequence="1" value="type2"/>
+            </choice>
+        </element>
+    </element>
+</database>

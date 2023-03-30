@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>More than one booking</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+  if (isLoading) {
+    return;
+  }
+  var start = g_form.getValue('start_time');
+  var end = g_form.getValue('end_time');
+  var userid = g_user.getUserID();
+  var booking = new GlideRecord('x_980836_car_bookings');
+  booking.addQuery('userid', userid);
+  booking.addQuery('start_time', '<', end);
+  booking.addQuery('end_time', '>', start);
+  booking.query();
+  if (booking.hasNext()) {
+    g_form.addErrorMessage('You have already booked a parking spot for this day.');
+    g_form.setValue('start_time', oldValue);
+    g_form.setValue('end_time', '');
+  }
+}
+
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-17 12:28:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7f69e8431b6d6d10dd39ed3abc4bcbfa</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>More than one booking</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_client_7f69e8431b6d6d10dd39ed3abc4bcbfa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-17 12:38:03</sys_updated_on>
+        <table>x_980836_car_bookings</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description> max of 3 hours</description>
+        <field>end_time</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>End One Booking Per Day</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+    var start_time = g_form.getValue('start_time');
+	var end_time = g_form.getValue('end_time');
+	var oneWeekFromNow = new Date();
+	var end = new Date(end_time);
+	
+		// Booking more than a week in advance is not allowed
+		oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+		if(end > oneWeekFromNow) {
+		g_form.addErrorMessage('You can only book one week in advanced!');
+		g_form.setValue('start_time', oldValue);
+		return;
+	}
+	
+	// End time booking can only be max 3 hours from the start time
+	var start = new Date(start_time);
+	var diffHours = (end.getTime() - start.getTime());
+	if(diffHours > 10800000) {
+		g_form.addErrorMessage('You can only book for 3 hours');
+		g_form.setValue('end_time', '');
+	}
+	
+
+	// End can not be in the past
+	var now = new Date();
+	if(end < now) {
+		g_form.addErrorMessage('End time cannot be in the past.');
+		g_form.setValue('end_time', oldValue);
+		return;
+	}
+	// End time must be after the start time
+		if(end < start) {
+			g_form.addErrorMessage('End time can not be before the start time');
+		}
+		
+	
+	
+	
+	
+	
+	
+	
+// 	var userid = g_form.getValue(('userid'));
+// 	var today = new GlideDateTime().getDisplayValue();
+// 	var booking = new GlideRecord('x_980836_car_bookings');
+// 	booking.addQuery('userid', userid);
+// 	booking.addQuery('start_time', '<=', today.getLocalDate());
+// 	booking.addQuery('end_time', '>=', today.getLocalDate());
+// 	booking.query();
+	
+// 	if(booking.hasNext()) {
+// 		alert('You have already booked a parking spot for this time period.');
+// 		g_form.setValue('start_time', '');
+// 		g_form.setValue('end_time', '');
+		
+// 	}
+   
+	}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-14 11:32:57</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>be5145461b25a910dd39ed3abc4bcb99</sys_id>
+        <sys_mod_count>65</sys_mod_count>
+        <sys_name>End One Booking Per Day</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_client_be5145461b25a910dd39ed3abc4bcb99</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-21 11:49:27</sys_updated_on>
+        <table>x_980836_car_bookings</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

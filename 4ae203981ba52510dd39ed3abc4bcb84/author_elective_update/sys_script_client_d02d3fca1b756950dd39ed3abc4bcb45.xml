@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>only show next 3 hours for endtime</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+//Assuming the fields' variable names are 'start_time' and 'end_time'
+//Adding an on change event listener to 'start_time' field
+
+var startTimeField = g_form.getControl('starttime');
+var endTimeField = g_form.getControl('endtime');
+startTimeField.observe('change', function () {
+    
+    var startTime = startTimeField.getValue();
+  
+    // Get the timestamp of the selected start time in milliseconds
+    var startTimestamp = Date.parseExact(startTime,"hh:mm tt");
+  
+    // Get the timestamp of the next 3 hours in milliseconds
+    var endTimestamp = Date.now() + (3 * 60 * 60 * 1000);
+  
+    // Set the 3-hour limit on end time field
+    var availableChoices = [];
+    while (startTimestamp <= endTimestamp) {
+        var time = new GlideDateTime(startTimestamp);
+        availableChoices.push(time.getDisplayValue());
+        startTimestamp += (15 * 60 * 1000); //increment by 15 mins
+    }
+    endTimeField.choices = availableChoices.join(',');
+});
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-27 11:31:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d02d3fca1b756950dd39ed3abc4bcb45</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>only show next 3 hours for endtime</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_client_d02d3fca1b756950dd39ed3abc4bcb45</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-28 14:05:06</sys_updated_on>
+        <table>x_980836_car_bookings</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_client_d02d3fca1b756950dd39ed3abc4bcb45</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;only show next 3 hours for endtime&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+//Assuming the fields' variable names are 'start_time' and 'end_time'
+//Adding an on change event listener to 'start_time' field
+
+var startTimeField = g_form.getControl('starttime');
+var endTimeField = g_form.getControl('endtime');
+startTimeField.observe('change', function () {
+    
+    var startTime = startTimeField.getValue();
+  
+    // Get the timestamp of the selected start time in milliseconds
+    var startTimestamp = Date.parseExact(startTime,"hh:mm tt");
+  
+    // Get the timestamp of the next 3 hours in milliseconds
+    var endTimestamp = Date.now() + (3 * 60 * 60 * 1000);
+  
+    // Set the 3-hour limit on end time field
+    var availableChoices = [];
+    while (startTimestamp &lt;= endTimestamp) {
+        var time = new GlideDateTime(startTimestamp);
+        availableChoices.push(time.getDisplayValue());
+        startTimestamp += (15 * 60 * 1000); //increment by 15 mins
+    }
+    endTimeField.choices = availableChoices.join(',');
+});
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-03-27 11:31:18&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;d02d3fca1b756950dd39ed3abc4bcb45&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;only show next 3 hours for endtime&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_d02d3fca1b756950dd39ed3abc4bcb45&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-03-28 14:05:06&lt;/sys_updated_on&gt;&lt;table&gt;x_980836_car_bookings&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1509394571</payload_hash>
+        <record_name>only show next 3 hours for endtime</record_name>
+        <reverted_from/>
+        <source>46e203981ba52510dd39ed3abc4bcb86</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-28 14:05:06</sys_created_on>
+        <sys_id>407a69661bb9a950dd39ed3abc4bcbf0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18728896a1c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-28 14:05:06</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>887a69667eb9a950c8011850b39e5fef</update_guid>
+        <update_guid_history>887a69667eb9a950c8011850b39e5fef:-1509394571,55adf30ee2756950cbd47c4fed5a1ba1:-1564695134</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-28 14:05:32</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>254120cef04540f089a5fb99d7ab0840</sys_id>
+        <sys_metadata>d02d3fca1b756950dd39ed3abc4bcb45</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>only show next 3 hours for endtime</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent display_value="Bookings">b7c44f1c1ba52510dd39ed3abc4bcb4a</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_client_d02d3fca1b756950dd39ed3abc4bcb45</sys_update_name>
+        <sys_update_version display_value="sys_script_client_d02d3fca1b756950dd39ed3abc4bcb45">407a69661bb9a950dd39ed3abc4bcbf0</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-28 14:05:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
