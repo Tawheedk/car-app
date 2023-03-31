@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="availability" table="x_980836_car_parkingspots">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="charger_type" table="x_980836_car_bookings">
         <active>true</active>
         <array>false</array>
         <attributes/>
@@ -13,7 +13,7 @@
         <choice>1</choice>
         <choice_field/>
         <choice_table/>
-        <column_label>Availability</column_label>
+        <column_label>Charger Type</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -26,7 +26,7 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>availability</element>
+        <element>charger_type</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <formula/>
@@ -35,7 +35,7 @@
         <internal_type display_value="Choice">choice</internal_type>
         <mandatory>false</mandatory>
         <max_length>40</max_length>
-        <name>x_980836_car_parkingspots</name>
+        <name>x_980836_car_bookings</name>
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
@@ -51,14 +51,14 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-03-30 12:41:57</sys_created_on>
-        <sys_name>Availability</sys_name>
+        <sys_created_on>2023-03-31 08:48:23</sys_created_on>
+        <sys_name>Charger Type</sys_name>
         <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
         <sys_policy/>
         <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
-        <sys_update_name>sys_dictionary_x_980836_car_parkingspots_availability</sys_update_name>
+        <sys_update_name>sys_dictionary_x_980836_car_bookings_charger_type</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-31 08:28:51</sys_updated_on>
+        <sys_updated_on>2023-03-31 08:48:23</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="b7c44f1c1ba52510dd39ed3abc4bcb4a" label="Bookings" max_length="40" name="x_980836_car_bookings" type="collection">
         <element label="BookingDuration" max_length="40" name="bookingduration" type="integer"/>
+        <element choice="1" label="Charger Type" max_length="40" name="charger_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="3-Pin - untethered" sequence="0" value="3-pin"/>
+                <element inactive_on_update="false" label="Type 2 - tethered" sequence="1" value="type 2"/>
+            </choice>
+        </element>
         <element choice="1" label="Date" mandatory="true" max_length="40" name="date" type="choice">
             <choice/>
         </element>
@@ -9,7 +15,7 @@
         </element>
         <element label="End Time" mandatory="true" max_length="40" name="end_time" type="glide_date_time"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="BookingID" max_length="40" name="number" type="string"/>
-        <element choice="1" label="Availability" max_length="32" name="spotid" reference="x_980836_car_parkingspots" type="reference">
+        <element choice="1" label="SpotID" max_length="32" name="spotid" reference="x_980836_car_parkingspots" type="reference">
             <choice/>
         </element>
         <element choice="1" label="StartTime" max_length="40" name="starttime" type="choice">

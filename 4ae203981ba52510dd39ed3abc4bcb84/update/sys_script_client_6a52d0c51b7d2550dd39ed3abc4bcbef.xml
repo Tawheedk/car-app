@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
     <sys_script_client action="INSERT_OR_UPDATE">
-        <active>true</active>
+        <active>false</active>
         <applies_extended>false</applies_extended>
         <condition/>
         <description/>
@@ -57,7 +57,7 @@ populateTimes();]]></script>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6a52d0c51b7d2550dd39ed3abc4bcbef</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>31</sys_mod_count>
         <sys_name>Time in a choice type</sys_name>
         <sys_overrides/>
         <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
@@ -65,7 +65,7 @@ populateTimes();]]></script>
         <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
         <sys_update_name>sys_script_client_6a52d0c51b7d2550dd39ed3abc4bcbef</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-29 13:23:59</sys_updated_on>
+        <sys_updated_on>2023-03-31 10:34:56</sys_updated_on>
         <table>x_980836_car_bookings</table>
         <type>onLoad</type>
         <ui_type>0</ui_type>

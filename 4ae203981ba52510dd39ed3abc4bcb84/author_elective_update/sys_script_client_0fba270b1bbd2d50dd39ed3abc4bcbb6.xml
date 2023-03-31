@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Times and SpotId </name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    populateTimes();
+}
+
+function populateTimes() {
+    var choiceField = g_form.getControl('availability');
+    var array = [];
+
+	var date = new Date();
+  date.setHours(0, 0, 0, 0); // Set the time to 12am
+
+  // Generate time blocks in 3-hour increments from 12am to 12am
+  for (var i = 0; i < 8; i++) {
+    var startTime = date.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
+    date.setHours(date.getHours() + 3); // Increment the time by 3 hours
+    var endTime = date.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
+
+    var timeBlock = startTime + ' - ' + endTime;
+    array.push(timeBlock);
+  }
+	
+    //     // Clear existing choices
+    choiceField.options.length = 0;
+
+	// add new choice list
+	for (var i = 0; i < array.length; i++) {
+		var choiceOption = new Option(array[i], array[i]);
+		choiceField.options.add(choiceOption);
+	}
+}
+
+populateTimes();]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-30 12:53:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0fba270b1bbd2d50dd39ed3abc4bcbb6</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Times and SpotId </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_client_0fba270b1bbd2d50dd39ed3abc4bcbb6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-30 13:38:55</sys_updated_on>
+        <table>x_980836_car_parkingspots</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_client_0fba270b1bbd2d50dd39ed3abc4bcbb6</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Times and SpotId &lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+    populateTimes();
+}
+
+function populateTimes() {
+    var choiceField = g_form.getControl('availability');
+    var array = [];
+
+	var date = new Date();
+  date.setHours(0, 0, 0, 0); // Set the time to 12am
+
+  // Generate time blocks in 3-hour increments from 12am to 12am
+  for (var i = 0; i &lt; 8; i++) {
+    var startTime = date.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
+    date.setHours(date.getHours() + 3); // Increment the time by 3 hours
+    var endTime = date.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
+
+    var timeBlock = startTime + ' - ' + endTime;
+    array.push(timeBlock);
+  }
+	
+    //     // Clear existing choices
+    choiceField.options.length = 0;
+
+	// add new choice list
+	for (var i = 0; i &lt; array.length; i++) {
+		var choiceOption = new Option(array[i], array[i]);
+		choiceField.options.add(choiceOption);
+	}
+}
+
+populateTimes();]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-03-30 12:53:20&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;0fba270b1bbd2d50dd39ed3abc4bcbb6&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name&gt;Times and SpotId &lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_0fba270b1bbd2d50dd39ed3abc4bcbb6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-03-30 13:38:55&lt;/sys_updated_on&gt;&lt;table&gt;x_980836_car_parkingspots&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1255796869</payload_hash>
+        <record_name>Times and SpotId </record_name>
+        <reverted_from/>
+        <source>1b24a3cf1b7d2d50dd39ed3abc4bcb89</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-30 13:38:55</sys_created_on>
+        <sys_id>40a77fc31bfd2d50dd39ed3abc4bcbbf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18732be28630000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-30 13:38:55</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>48a77fc345fd2d504c48cd0a93a9b2be</update_guid>
+        <update_guid_history>48a77fc345fd2d504c48cd0a93a9b2be:1255796869,dcd3f38372fd2d5019ab0deed31f12df:-1092367751,88123703a8fd2d50f680e9222ac712a7:254766795,bdc1770398fd2d5024ae94f48aa0d49c:2068307505,d8b1778f5fbd2d505e7fd7a3d2b93163:-1447365180,02813bcfe8bd2d50141b70ff2dee8f9a:-2016561930,91beaf0fd7bd2d5086e0b1c8c1a07121:-471629700,373e670fcfbd2d507fb3da369a784ac4:-999551293,20dd6fcb15bd2d50bf803522eacc0855:-367328880,503d2f8bcabd2d507f43fd6249255a7e:8404867</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 08:53:54</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>1c0a0f33bde24750970a80bdf3b53040</sys_id>
+        <sys_metadata>0fba270b1bbd2d50dd39ed3abc4bcbb6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Times and SpotId </sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent display_value="ParkingSpots">8244071c1ba52510dd39ed3abc4bcbde</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_client_0fba270b1bbd2d50dd39ed3abc4bcbb6</sys_update_name>
+        <sys_update_version display_value="sys_script_client_0fba270b1bbd2d50dd39ed3abc4bcbb6">40a77fc31bfd2d50dd39ed3abc4bcbbf</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 08:53:54</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

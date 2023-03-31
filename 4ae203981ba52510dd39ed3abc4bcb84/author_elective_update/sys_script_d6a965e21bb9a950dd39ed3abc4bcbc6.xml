@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_980836_car_bookings</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>availabity status</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+function makeBooking() {
+  var spotId = g_form.getValue('spotid');
+  var start = g_form.getValue('starttime');
+  var end = g_form.getValue('endtime');
+
+  // Create a new booking record
+  var booking = new GlideRecord('x_980836_car_bookings');
+  booking.initialize();
+  booking.setValue('spotid', spotId);
+  booking.setValue('starttime', start);
+  booking.setValue('endtime', end);
+  booking.setValue('user', g_user.userID);
+  booking.setValue('status', 'reserved');
+  booking.insert();
+	
+
+  // Update the availability status of the parking spot
+  var parking = new GlideRecord('x_980836_car_parkingspots');
+  parking.addQuery('sysid', spotId);
+  parking.query();
+  if (parking.next()) {
+    parking.setValue('available', false);
+    parking.update();
+  }
+  
+  // Show a success message and reload the form
+  g_form.addInfoMessage('Booking successful!');
+  g_form.clearMessages();
+  g_form.setValues({ starttime: '', endtime: '' });
+  g_form.submit();
+	
+}
+
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-28 14:01:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d6a965e21bb9a950dd39ed3abc4bcbc6</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>availabity status</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_d6a965e21bb9a950dd39ed3abc4bcbc6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-28 15:02:26</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=d6a965e21bb9a950dd39ed3abc4bcbc6"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_d6a965e21bb9a950dd39ed3abc4bcbc6</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_980836_car_bookings&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;availabity status&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+function makeBooking() {
+  var spotId = g_form.getValue('spotid');
+  var start = g_form.getValue('starttime');
+  var end = g_form.getValue('endtime');
+
+  // Create a new booking record
+  var booking = new GlideRecord('x_980836_car_bookings');
+  booking.initialize();
+  booking.setValue('spotid', spotId);
+  booking.setValue('starttime', start);
+  booking.setValue('endtime', end);
+  booking.setValue('user', g_user.userID);
+  booking.setValue('status', 'reserved');
+  booking.insert();
+	
+
+  // Update the availability status of the parking spot
+  var parking = new GlideRecord('x_980836_car_parkingspots');
+  parking.addQuery('sysid', spotId);
+  parking.query();
+  if (parking.next()) {
+    parking.setValue('available', false);
+    parking.update();
+  }
+  
+  // Show a success message and reload the form
+  g_form.addInfoMessage('Booking successful!');
+  g_form.clearMessages();
+  g_form.setValues({ starttime: '', endtime: '' });
+  g_form.submit();
+	
+}
+
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-03-28 14:01:43&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;d6a965e21bb9a950dd39ed3abc4bcbc6&lt;/sys_id&gt;&lt;sys_mod_count&gt;12&lt;/sys_mod_count&gt;&lt;sys_name&gt;availabity status&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_d6a965e21bb9a950dd39ed3abc4bcbc6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-03-28 15:02:26&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=d6a965e21bb9a950dd39ed3abc4bcbc6"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-893299488</payload_hash>
+        <record_name>availabity status</record_name>
+        <reverted_from/>
+        <source>46e203981ba52510dd39ed3abc4bcb86</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-28 15:02:27</sys_created_on>
+        <sys_id>8c9775a21bf9a950dd39ed3abc4bcb04</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18728bde84e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-28 15:02:27</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>449775a2cbf9a950f6839c761c1cc004</update_guid>
+        <update_guid_history>449775a2cbf9a950f6839c761c1cc004:-893299488,4657b5ee3ab9a9505c85801ab52d5757:1233643342,b3a37dae3db9a950e903b0692dc801ef:917985110,2b933daebcb9a950aa7a7d8d5a44c315:-1701285081,0173f9aea3b9a9501ec314ea636b2c18:872446827,8f0335aeecb9a950999e924139f54fd0:-1858890029,2652396eceb9a950480dd0275d6b13bb:-562539720,2432716eeab9a950045a16bb7eeb5d59:-1625442822,7ad1792e0db9a950193ae28dc54373a3:-1700474976,225131aafeb9a950d68d16824da6daef:-781222434,03c0f16aeeb9a950d2136a3a8bb5d030:922249534,f40a6566c9b9a9506207deb56b0b3a03:-1418465039,a6a965e24cb9a9506d871a640c44fdcb:248230312</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 08:53:17</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>257b7aee734b479fad0522cc21955e99</sys_id>
+        <sys_metadata>d6a965e21bb9a950dd39ed3abc4bcbc6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>availabity status</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent display_value="Bookings">b7c44f1c1ba52510dd39ed3abc4bcb4a</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_d6a965e21bb9a950dd39ed3abc4bcbc6</sys_update_name>
+        <sys_update_version display_value="sys_script_d6a965e21bb9a950dd39ed3abc4bcbc6">8c9775a21bf9a950dd39ed3abc4bcb04</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 08:53:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
