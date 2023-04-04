@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>populate start times</description>
+        <name>test</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[(function (minutes) {
+	var createChoice = createChoiceFor('x_980836_car_bookings', 'start'),
+		choiceValueExist = choiceValueExistFor('x_980836_car_bookings', 'start');
+
+	while (minutes < 1440) {
+		if (!choiceValueExist(minutes))
+			createChoice(minutes);
+
+		minutes += 15;
+	}
+
+	function createChoiceFor (name, element) {
+		var secondsInMinutes = 60;
+		var millisecondsInSeconds = 1000;
+
+		return function (value) {
+			var milliseconds = value * secondsInMinutes * millisecondsInSeconds;
+			var gt = new GlideTime(milliseconds);
+
+			return new global.GlideQuery('sys_choice')
+				.insert({
+					'name': name,
+					'element': element,
+					'value': '' + value,
+					'language': 'en',
+					'label': gt.getByFormat('hh:mm aaa'),
+					'inactive': false,
+					'sequence': value,
+				});
+		};
+	}
+
+	function choiceValueExistFor (name, element) {
+		return function (value) {
+			return !new global.GlideQuery('sys_choice')
+				.where('name', name)
+				.where('element', element)
+				.where('value', '' + value)
+				.where('language', 'en')
+				.selectOne([])
+				.isEmpty();
+		};
+	}
+})(0);]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 12:46:07</sys_created_on>
+        <sys_id>70a11c241b4a6190dd39ed3abc4bcb3f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_fix_70a11c241b4a6190dd39ed3abc4bcb3f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 12:46:07</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="DELETE">
+        <before>false</before>
+        <description/>
+        <name>test</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[(function (minutes) {
+	var createChoice = createChoiceFor('x_980836_car_bookings', 'start_time'),
+		choiceValueExist = choiceValueExistFor('x_980836_car_bookings', 'start_time');
+
+	while (minutes < 1440) {
+		if (!choiceValueExist(minutes))
+			createChoice(minutes);
+
+		minutes += 15;
+	}
+
+	function createChoiceFor (name, element) {
+		var secondsInMinutes = 60;
+		var millisecondsInSeconds = 1000;
+
+		return function (value) {
+			var milliseconds = value * secondsInMinutes * millisecondsInSeconds;
+			var gt = new GlideTime(milliseconds);
+
+			return new global.GlideQuery('sys_choice')
+				.insert({
+					'name': name,
+					'element': element,
+					'value': '' + value,
+					'language': 'en',
+					'label': gt.getByFormat('hh:mm'),
+					'inactive': false,
+					'sequence': value,
+				});
+		};
+	}
+
+	function choiceValueExistFor (name, element) {
+		return function (value) {
+			return !new global.GlideQuery('sys_choice')
+				.where('name', name)
+				.where('element', element)
+				.where('value', '' + value)
+				.where('language', 'en')
+				.selectOne([])
+				.isEmpty();
+		};
+	}
+})(0);]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 11:50:53</sys_created_on>
+        <sys_id>e615c8e41b0a6190dd39ed3abc4bcbe3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_fix_e615c8e41b0a6190dd39ed3abc4bcbe3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 11:51:12</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_fix_e615c8e41b0a6190dd39ed3abc4bcbe3</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_fix"&gt;&lt;sys_script_fix action="INSERT_OR_UPDATE"&gt;&lt;before&gt;false&lt;/before&gt;&lt;description/&gt;&lt;name&gt;test&lt;/name&gt;&lt;record_for_rollback&gt;true&lt;/record_for_rollback&gt;&lt;script&gt;&lt;![CDATA[(function (minutes) {
+	var createChoice = createChoiceFor('x_980836_car_bookings', 'start_time'),
+		choiceValueExist = choiceValueExistFor('x_980836_car_bookings', 'start_time');
+
+	while (minutes &lt; 1440) {
+		if (!choiceValueExist(minutes))
+			createChoice(minutes);
+
+		minutes += 15;
+	}
+
+	function createChoiceFor (name, element) {
+		var secondsInMinutes = 60;
+		var millisecondsInSeconds = 1000;
+
+		return function (value) {
+			var milliseconds = value * secondsInMinutes * millisecondsInSeconds;
+			var gt = new GlideTime(milliseconds);
+
+			return new global.GlideQuery('sys_choice')
+				.insert({
+					'name': name,
+					'element': element,
+					'value': '' + value,
+					'language': 'en',
+					'label': gt.getByFormat('hh:mm'),
+					'inactive': false,
+					'sequence': value,
+				});
+		};
+	}
+
+	function choiceValueExistFor (name, element) {
+		return function (value) {
+			return !new global.GlideQuery('sys_choice')
+				.where('name', name)
+				.where('element', element)
+				.where('value', '' + value)
+				.where('language', 'en')
+				.selectOne([])
+				.isEmpty();
+		};
+	}
+})(0);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_fix&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-04-03 11:50:53&lt;/sys_created_on&gt;&lt;sys_id&gt;e615c8e41b0a6190dd39ed3abc4bcbe3&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;test&lt;/sys_name&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_fix_e615c8e41b0a6190dd39ed3abc4bcbe3&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-03 11:51:12&lt;/sys_updated_on&gt;&lt;unloadable&gt;false&lt;/unloadable&gt;&lt;/sys_script_fix&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-91594608</payload_hash>
+        <record_name>test</record_name>
+        <reverted_from/>
+        <source>1b24a3cf1b7d2d50dd39ed3abc4bcb89</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 11:51:12</sys_created_on>
+        <sys_id>0955c0e41b0a6190dd39ed3abc4bcbb2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18746f4f8f20000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 11:51:12</sys_updated_on>
+        <type>Fix Script</type>
+        <update_guid>0155c0e4120a6190b476afdb1d40efb2</update_guid>
+        <update_guid_history>0155c0e4120a6190b476afdb1d40efb2:-91594608,a44584e4a20a61900700b26265d5e505:1219255247</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 12:07:04</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_fix">sys_script_fix</sys_db_object>
+        <sys_id>13df94c500c74c3e8b37938a72cb98a4</sys_id>
+        <sys_metadata>e615c8e41b0a6190dd39ed3abc4bcbe3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_fix_e615c8e41b0a6190dd39ed3abc4bcbe3</sys_update_name>
+        <sys_update_version display_value="sys_script_fix_e615c8e41b0a6190dd39ed3abc4bcbe3">0955c0e41b0a6190dd39ed3abc4bcbb2</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 12:07:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

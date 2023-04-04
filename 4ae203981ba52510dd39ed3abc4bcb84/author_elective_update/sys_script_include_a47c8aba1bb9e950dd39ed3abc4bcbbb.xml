@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_980836_car.TimeSlotGenerator</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>TimeSlotGenerator</name>
+        <script><![CDATA[// Script Include: TimeSlotGenerator
+var TimeSlotGenerator = Class.create();
+TimeSlotGenerator.prototype = {
+  initialize: function() {
+    this.timeSlots = [];
+    this.intervalInMinutes = 15;
+    this.start = 480; // start time in minutes (8am)
+    this.end = 1080; // end time in minutes (6pm)
+  },
+
+  generateTimeSlots: function() {
+    var timeSlot = this.start;
+
+    while (timeSlot <= this.end) {
+      var hour = Math.floor(timeSlot / 60);
+      var minute = timeSlot % 60;
+      var amPm = hour < 12 ? 'AM' : 'PM';
+      hour = hour % 12 || 12;
+
+      var label = hour + ':' + (minute < 10 ? '0' + minute : minute) + ' ' + amPm;
+      this.timeSlots.push(label);
+
+      timeSlot += this.intervalInMinutes;
+    }
+
+    return this.timeSlots;
+  }
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-29 11:12:50</sys_created_on>
+        <sys_id>a47c8aba1bb9e950dd39ed3abc4bcbbb</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>TimeSlotGenerator</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_include_a47c8aba1bb9e950dd39ed3abc4bcbbb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-29 11:31:06</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_include_a47c8aba1bb9e950dd39ed3abc4bcbbb</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;false&lt;/active&gt;&lt;api_name&gt;x_980836_car.TimeSlotGenerator&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;TimeSlotGenerator&lt;/name&gt;&lt;script&gt;&lt;![CDATA[// Script Include: TimeSlotGenerator
+var TimeSlotGenerator = Class.create();
+TimeSlotGenerator.prototype = {
+  initialize: function() {
+    this.timeSlots = [];
+    this.intervalInMinutes = 15;
+    this.start = 480; // start time in minutes (8am)
+    this.end = 1080; // end time in minutes (6pm)
+  },
+
+  generateTimeSlots: function() {
+    var timeSlot = this.start;
+
+    while (timeSlot &lt;= this.end) {
+      var hour = Math.floor(timeSlot / 60);
+      var minute = timeSlot % 60;
+      var amPm = hour &lt; 12 ? 'AM' : 'PM';
+      hour = hour % 12 || 12;
+
+      var label = hour + ':' + (minute &lt; 10 ? '0' + minute : minute) + ' ' + amPm;
+      this.timeSlots.push(label);
+
+      timeSlot += this.intervalInMinutes;
+    }
+
+    return this.timeSlots;
+  }
+};
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-03-29 11:12:50&lt;/sys_created_on&gt;&lt;sys_id&gt;a47c8aba1bb9e950dd39ed3abc4bcbbb&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;TimeSlotGenerator&lt;/sys_name&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_a47c8aba1bb9e950dd39ed3abc4bcbbb&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-03-29 11:31:06&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2065228026</payload_hash>
+        <record_name>TimeSlotGenerator</record_name>
+        <reverted_from/>
+        <source>46e203981ba52510dd39ed3abc4bcb86</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-29 11:31:06</sys_created_on>
+        <sys_id>fdc09abe1bb9e950dd39ed3abc4bcbe8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1872d22c50c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-29 11:31:06</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>39c09abecbb9e95082397a63f8158ae8</update_guid>
+        <update_guid_history>39c09abecbb9e95082397a63f8158ae8:2065228026,969c8e7a8e79e950b493a031e272b72e:816752875</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 11:01:24</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>7a44f02872e442e6a3a4bebc24a3a0e1</sys_id>
+        <sys_metadata>a47c8aba1bb9e950dd39ed3abc4bcbbb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TimeSlotGenerator</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_include_a47c8aba1bb9e950dd39ed3abc4bcbbb</sys_update_name>
+        <sys_update_version display_value="sys_script_include_a47c8aba1bb9e950dd39ed3abc4bcbbb">fdc09abe1bb9e950dd39ed3abc4bcbe8</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 11:01:24</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

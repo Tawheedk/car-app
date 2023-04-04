@@ -19,8 +19,8 @@
         <default_value/>
         <defaultsort/>
         <delete_roles/>
-        <dependent/>
-        <dependent_on_field/>
+        <dependent>charger_type</dependent>
+        <dependent_on_field>charger_type</dependent_on_field>
         <display>false</display>
         <dynamic_creation>false</dynamic_creation>
         <dynamic_creation_script/>
@@ -32,7 +32,7 @@
         <formula/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="Reference">reference</internal_type>
+        <internal_type display_value="String">string</internal_type>
         <mandatory>false</mandatory>
         <max_length>32</max_length>
         <name>x_980836_car_bookings</name>
@@ -40,7 +40,7 @@
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
-        <reference display_value="" name="x_980836_car_parkingspots">x_980836_car_parkingspots</reference>
+        <reference/>
         <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
@@ -58,11 +58,11 @@
         <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
         <sys_update_name>sys_dictionary_x_980836_car_bookings_spotid</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-31 08:47:19</sys_updated_on>
+        <sys_updated_on>2023-04-03 16:39:26</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
-        <use_dependent_field>false</use_dependent_field>
+        <use_dependent_field>true</use_dependent_field>
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>

@@ -15,13 +15,128 @@
         </element>
         <element label="End Time" mandatory="true" max_length="40" name="end_time" type="glide_date_time"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="BookingID" max_length="40" name="number" type="string"/>
-        <element choice="1" label="SpotID" max_length="32" name="spotid" reference="x_980836_car_parkingspots" type="reference">
-            <choice/>
+        <element choice="1" dependent="charger_type" dependent_on_field="charger_type" label="SpotID" max_length="32" name="spotid" type="string" use_dependent_field="true">
+            <choice>
+                <element dependent_value="3-pin" inactive_on_update="false" label="1" sequence="0" value="1"/>
+                <element dependent_value="type 2" inactive_on_update="false" label="2" sequence="1" value="2"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="3" sequence="2" value="3"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="4" sequence="3" value="4"/>
+                <element dependent_value="type 2" inactive_on_update="false" label="5" sequence="4" value="5"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="6" sequence="5" value="6"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="7" sequence="6" value="7"/>
+                <element dependent_value="type 2" inactive_on_update="false" label="8" sequence="7" value="8"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="9" sequence="8" value="9"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="10" sequence="9" value="10"/>
+                <element dependent_value="type 2" inactive_on_update="false" label="11" sequence="10" value="11"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="12" sequence="11" value="12"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="13" sequence="12" value="13"/>
+                <element dependent_value="type 2" inactive_on_update="false" label="14" sequence="13" value="14"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="15" sequence="14" value="15"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="16" sequence="15" value="16"/>
+                <element dependent_value="type 2" inactive_on_update="false" label="17" sequence="16" value="17"/>
+                <element dependent_value="3-pin" inactive_on_update="false" label="18" sequence="17" value="18"/>
+            </choice>
         </element>
-        <element choice="1" label="StartTime" max_length="40" name="starttime" type="choice">
-            <choice/>
+        <element choice="1" label="Start" max_length="40" name="start" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="12:00 AM" sequence="0" value="0"/>
+                <element inactive_on_update="false" label="12:15 AM" sequence="15" value="15"/>
+                <element inactive_on_update="false" label="12:30 AM" sequence="30" value="30"/>
+                <element inactive_on_update="false" label="12:45 AM" sequence="45" value="45"/>
+                <element inactive_on_update="false" label="01:00 AM" sequence="60" value="60"/>
+                <element inactive_on_update="false" label="01:15 AM" sequence="75" value="75"/>
+                <element inactive_on_update="false" label="01:30 AM" sequence="90" value="90"/>
+                <element inactive_on_update="false" label="01:45 AM" sequence="105" value="105"/>
+                <element inactive_on_update="false" label="02:00 AM" sequence="120" value="120"/>
+                <element inactive_on_update="false" label="02:15 AM" sequence="135" value="135"/>
+                <element inactive_on_update="false" label="02:30 AM" sequence="150" value="150"/>
+                <element inactive_on_update="false" label="02:45 AM" sequence="165" value="165"/>
+                <element inactive_on_update="false" label="03:00 AM" sequence="180" value="180"/>
+                <element inactive_on_update="false" label="03:15 AM" sequence="195" value="195"/>
+                <element inactive_on_update="false" label="03:30 AM" sequence="210" value="210"/>
+                <element inactive_on_update="false" label="03:45 AM" sequence="225" value="225"/>
+                <element inactive_on_update="false" label="04:00 AM" sequence="240" value="240"/>
+                <element inactive_on_update="false" label="04:15 AM" sequence="255" value="255"/>
+                <element inactive_on_update="false" label="04:30 AM" sequence="270" value="270"/>
+                <element inactive_on_update="false" label="04:45 AM" sequence="285" value="285"/>
+                <element inactive_on_update="false" label="05:00 AM" sequence="300" value="300"/>
+                <element inactive_on_update="false" label="05:15 AM" sequence="315" value="315"/>
+                <element inactive_on_update="false" label="05:30 AM" sequence="330" value="330"/>
+                <element inactive_on_update="false" label="05:45 AM" sequence="345" value="345"/>
+                <element inactive_on_update="false" label="06:00 AM" sequence="360" value="360"/>
+                <element inactive_on_update="false" label="06:15 AM" sequence="375" value="375"/>
+                <element inactive_on_update="false" label="06:30 AM" sequence="390" value="390"/>
+                <element inactive_on_update="false" label="06:45 AM" sequence="405" value="405"/>
+                <element inactive_on_update="false" label="07:00 AM" sequence="420" value="420"/>
+                <element inactive_on_update="false" label="07:15 AM" sequence="435" value="435"/>
+                <element inactive_on_update="false" label="07:30 AM" sequence="450" value="450"/>
+                <element inactive_on_update="false" label="07:45 AM" sequence="465" value="465"/>
+                <element inactive_on_update="false" label="08:00 AM" sequence="480" value="480"/>
+                <element inactive_on_update="false" label="08:15 AM" sequence="495" value="495"/>
+                <element inactive_on_update="false" label="08:30 AM" sequence="510" value="510"/>
+                <element inactive_on_update="false" label="08:45 AM" sequence="525" value="525"/>
+                <element inactive_on_update="false" label="09:00 AM" sequence="540" value="540"/>
+                <element inactive_on_update="false" label="09:15 AM" sequence="555" value="555"/>
+                <element inactive_on_update="false" label="09:30 AM" sequence="570" value="570"/>
+                <element inactive_on_update="false" label="09:45 AM" sequence="585" value="585"/>
+                <element inactive_on_update="false" label="10:00 AM" sequence="600" value="600"/>
+                <element inactive_on_update="false" label="10:15 AM" sequence="615" value="615"/>
+                <element inactive_on_update="false" label="10:30 AM" sequence="630" value="630"/>
+                <element inactive_on_update="false" label="10:45 AM" sequence="645" value="645"/>
+                <element inactive_on_update="false" label="11:00 AM" sequence="660" value="660"/>
+                <element inactive_on_update="false" label="11:15 AM" sequence="675" value="675"/>
+                <element inactive_on_update="false" label="11:30 AM" sequence="690" value="690"/>
+                <element inactive_on_update="false" label="11:45 AM" sequence="705" value="705"/>
+                <element inactive_on_update="false" label="12:00 PM" sequence="720" value="720"/>
+                <element inactive_on_update="false" label="12:15 PM" sequence="735" value="735"/>
+                <element inactive_on_update="false" label="12:30 PM" sequence="750" value="750"/>
+                <element inactive_on_update="false" label="12:45 PM" sequence="765" value="765"/>
+                <element inactive_on_update="false" label="01:00 PM" sequence="780" value="780"/>
+                <element inactive_on_update="false" label="01:15 PM" sequence="795" value="795"/>
+                <element inactive_on_update="false" label="01:30 PM" sequence="810" value="810"/>
+                <element inactive_on_update="false" label="01:45 PM" sequence="825" value="825"/>
+                <element inactive_on_update="false" label="02:00 PM" sequence="840" value="840"/>
+                <element inactive_on_update="false" label="02:15 PM" sequence="855" value="855"/>
+                <element inactive_on_update="false" label="02:30 PM" sequence="870" value="870"/>
+                <element inactive_on_update="false" label="02:45 PM" sequence="885" value="885"/>
+                <element inactive_on_update="false" label="03:00 PM" sequence="900" value="900"/>
+                <element inactive_on_update="false" label="03:15 PM" sequence="915" value="915"/>
+                <element inactive_on_update="false" label="03:30 PM" sequence="930" value="930"/>
+                <element inactive_on_update="false" label="03:45 PM" sequence="945" value="945"/>
+                <element inactive_on_update="false" label="04:00 PM" sequence="960" value="960"/>
+                <element inactive_on_update="false" label="04:15 PM" sequence="975" value="975"/>
+                <element inactive_on_update="false" label="04:30 PM" sequence="990" value="990"/>
+                <element inactive_on_update="false" label="04:45 PM" sequence="1005" value="1005"/>
+                <element inactive_on_update="false" label="05:00 PM" sequence="1020" value="1020"/>
+                <element inactive_on_update="false" label="05:15 PM" sequence="1035" value="1035"/>
+                <element inactive_on_update="false" label="05:30 PM" sequence="1050" value="1050"/>
+                <element inactive_on_update="false" label="05:45 PM" sequence="1065" value="1065"/>
+                <element inactive_on_update="false" label="06:00 PM" sequence="1080" value="1080"/>
+                <element inactive_on_update="false" label="06:15 PM" sequence="1095" value="1095"/>
+                <element inactive_on_update="false" label="06:30 PM" sequence="1110" value="1110"/>
+                <element inactive_on_update="false" label="06:45 PM" sequence="1125" value="1125"/>
+                <element inactive_on_update="false" label="07:00 PM" sequence="1140" value="1140"/>
+                <element inactive_on_update="false" label="07:15 PM" sequence="1155" value="1155"/>
+                <element inactive_on_update="false" label="07:30 PM" sequence="1170" value="1170"/>
+                <element inactive_on_update="false" label="07:45 PM" sequence="1185" value="1185"/>
+                <element inactive_on_update="false" label="08:00 PM" sequence="1200" value="1200"/>
+                <element inactive_on_update="false" label="08:15 PM" sequence="1215" value="1215"/>
+                <element inactive_on_update="false" label="08:30 PM" sequence="1230" value="1230"/>
+                <element inactive_on_update="false" label="08:45 PM" sequence="1245" value="1245"/>
+                <element inactive_on_update="false" label="09:00 PM" sequence="1260" value="1260"/>
+                <element inactive_on_update="false" label="09:15 PM" sequence="1275" value="1275"/>
+                <element inactive_on_update="false" label="09:30 PM" sequence="1290" value="1290"/>
+                <element inactive_on_update="false" label="09:45 PM" sequence="1305" value="1305"/>
+                <element inactive_on_update="false" label="10:00 PM" sequence="1320" value="1320"/>
+                <element inactive_on_update="false" label="10:15 PM" sequence="1335" value="1335"/>
+                <element inactive_on_update="false" label="10:30 PM" sequence="1350" value="1350"/>
+                <element inactive_on_update="false" label="10:45 PM" sequence="1365" value="1365"/>
+                <element inactive_on_update="false" label="11:00 PM" sequence="1380" value="1380"/>
+                <element inactive_on_update="false" label="11:15 PM" sequence="1395" value="1395"/>
+                <element inactive_on_update="false" label="11:30 PM" sequence="1410" value="1410"/>
+                <element inactive_on_update="false" label="11:45 PM" sequence="1425" value="1425"/>
+            </choice>
         </element>
-        <element label="Start Time" mandatory="true" max_length="40" name="start_time" type="glide_date_time"/>
         <element choice="1" label="UserID" max_length="32" name="userid" reference="sys_user" type="reference">
             <choice/>
         </element>

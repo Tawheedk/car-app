@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>name</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>test test</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+  if (isLoading || newValue === '') {
+    return;
+  }
+  var ageField = g_form.getReference('age');
+  var noneOption = {
+    value: '',
+    display: '-- None --'
+  };
+  ageField.choices = [noneOption];
+
+  if (newValue === 'Tawheed') {
+    ageField.choices.push({value: '1', display: '1'});
+    ageField.choices.push({value: '2', display: '2'});
+    ageField.choices.push({value: '3', display: '3'});
+    ageField.choices.push({value: '4', display: '4'});
+    ageField.choices.push({value: '5', display: '5'});
+  } else if (newValue === 'Neelam') {
+    ageField.choices.push({value: '6', display: '6'});
+    ageField.choices.push({value: '7', display: '7'});
+    ageField.choices.push({value: '8', display: '8'});
+    ageField.choices.push({value: '9', display: '9'});
+    ageField.choices.push({value: '10', display: '10'});
+  }
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 14:16:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e076e8281b8a6190dd39ed3abc4bcba7</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>test test</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_client_e076e8281b8a6190dd39ed3abc4bcba7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 16:00:12</sys_updated_on>
+        <table>x_980836_car_bookings</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_client_e076e8281b8a6190dd39ed3abc4bcba7</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;name&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;test test&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+  if (isLoading || newValue === '') {
+    return;
+  }
+  var ageField = g_form.getReference('age');
+  var noneOption = {
+    value: '',
+    display: '-- None --'
+  };
+  ageField.choices = [noneOption];
+
+  if (newValue === 'Tawheed') {
+    ageField.choices.push({value: '1', display: '1'});
+    ageField.choices.push({value: '2', display: '2'});
+    ageField.choices.push({value: '3', display: '3'});
+    ageField.choices.push({value: '4', display: '4'});
+    ageField.choices.push({value: '5', display: '5'});
+  } else if (newValue === 'Neelam') {
+    ageField.choices.push({value: '6', display: '6'});
+    ageField.choices.push({value: '7', display: '7'});
+    ageField.choices.push({value: '8', display: '8'});
+    ageField.choices.push({value: '9', display: '9'});
+    ageField.choices.push({value: '10', display: '10'});
+  }
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-04-03 14:16:37&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;e076e8281b8a6190dd39ed3abc4bcba7&lt;/sys_id&gt;&lt;sys_mod_count&gt;39&lt;/sys_mod_count&gt;&lt;sys_name&gt;test test&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_e076e8281b8a6190dd39ed3abc4bcba7&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-03 16:00:12&lt;/sys_updated_on&gt;&lt;table&gt;x_980836_car_bookings&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1537094333</payload_hash>
+        <record_name>test test</record_name>
+        <reverted_from/>
+        <source>1b24a3cf1b7d2d50dd39ed3abc4bcb89</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 16:00:12</sys_created_on>
+        <sys_id>205ef4201b0e6190dd39ed3abc4bcbd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18747d8f2050000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 16:00:12</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>285ef420580e61907eb7116dac2873d1</update_guid>
+        <update_guid_history>285ef420580e61907eb7116dac2873d1:1537094333,cacc30ec69ca61903a2ffc32dec00903:1792602800,1b8c78aceeca6190e4c0323427d284ce:-2080091020,055c74ac7cca6190bec05bf4e4d7e0e4:-783411899,0d2c7c6c39ca6190c203a3f5acf65dd2:-1049975725,06dbbc6c36ca6190a7e32ad2239caa25:1749960930,50ab7c6c95ca619020119f9122f99b2b:115624428,512b7c2cdfca61904a76c50eae424766:-1143768077,25ea78e8b4ca6190c5b1d55d86ab6b95:1858010551,6d2978a8b5ca619010ee42b84e9ca401:1749960930,b5a83c6825ca6190179a00e74f874748:-260018178,0748b0a8b2ca6190a11e075a871d963d:-1978965696,43d7f828a6ca6190bceff05e0f5cb19c:-61296868,0c173428cfca619053bd2b42351dcc87:-1090396164,09077428ceca6190bfadd398d96a3f44:1797686481,c756bc647bca619014c4b507b1a93787:-294658552,3de4f0648cca619038ba7ea4c5dd9f6a:-524598929,9123f824daca6190e15023f15dc0e556:600590685,92f2b4245fca61907d4ea0f166190c55:-170868308,817274246eca6190377e57073a9b1aa6:-202753387,cf1238e0a5ca6190c0b4afb137354ec9:-1620283466,cdf138e0d2ca619055d3a08292cbd4c4:470017414,e8b138e021ca619073f85e60ebded718:-1307018437,c99138e0f7ca6190d90f5de0f2d958e2:-1070122111,f551f4e059ca6190896efeed5d3173b1:-1307018437,9721fca09eca61906b75745cf74748ca:695382659,23f078a0b4ca61903dbd6545a95c3414:1726324308,1db0786096ca619053a65b5925a1cfd4:-1439590598,775034a024ca61907c72f4fe97ecadd3:-1555125403,463074a044ca6190e097e9d53365753a:1414110386,3f2034a0faca6190291ffe266f5c0774:-729995496,85efec6038ca6190266377faeea2d0af:-1667279756,d2dfa460f9ca6190babb5a1e1794a9bc:-1451708060,a06c646c448a6190cc9332eff6b0aab4:-1690095810,c62b2ce83c8a6190342d2da96428bf15:-2137206832,94a9e8e88d8a61906f93a8b3a5d06742:1672814296,8489ec282a8a619039c71d235fe5f74a:-1794457343,0258e868a68a619085a2a0ec4602ada8:-789674549,3428ac285f8a61903e607bd8e052d9cc:458133098,df9628a4268a61907b48690227e12ae4:227429125</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 16:45:50</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>d47d10e5eb6c48368175e6f0c7c26344</sys_id>
+        <sys_metadata>e076e8281b8a6190dd39ed3abc4bcba7</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test test</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent display_value="Bookings">b7c44f1c1ba52510dd39ed3abc4bcb4a</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_client_e076e8281b8a6190dd39ed3abc4bcba7</sys_update_name>
+        <sys_update_version display_value="sys_script_client_e076e8281b8a6190dd39ed3abc4bcba7">205ef4201b0e6190dd39ed3abc4bcbd2</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 16:45:50</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

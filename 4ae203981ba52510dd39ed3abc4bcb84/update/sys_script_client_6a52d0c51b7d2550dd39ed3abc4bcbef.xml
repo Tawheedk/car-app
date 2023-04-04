@@ -17,19 +17,19 @@
 
 function populateTimes() {
     var startChoiceField = g_form.getControl('starttime');
-    var endChoiceField = g_form.getControl('endtime');
+//     var endChoiceField = g_form.getControl('endtime');
 
     // Clear existing choices
     startChoiceField.options.length = 0;
-    endChoiceField.options.length = 0;
+//     endChoiceField.options.length = 0;
 
     // Add "None" option to start time choice fields
     var noneOptionStart = new Option('--None--', '');
     startChoiceField.options.add(noneOptionStart);
 	
-    // Add "None" option to end time choice fields
-	var noneOptionEnd = new Option('--None--', '');
-    endChoiceField.options.add(noneOptionEnd);
+//     // Add "None" option to end time choice fields
+// 	var noneOptionEnd = new Option('--None--', '');
+//     endChoiceField.options.add(noneOptionEnd);
 
     // Generate choices for hours and minutes in 15 minute increments
     var hours = ['12', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'];
@@ -43,7 +43,7 @@ function populateTimes() {
                 var formattedTime = hours[i] + ':' + minutes[j] + ' ' + ampm[k];
                 var timeOption = new Option(formattedTime, formattedTime);
                 startChoiceField.options.add(timeOption);
-                endChoiceField.options.add(timeOption.cloneNode(true));
+//                 endChoiceField.options.add(timeOption.cloneNode(true));
             }
         }
     }
@@ -57,7 +57,7 @@ populateTimes();]]></script>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6a52d0c51b7d2550dd39ed3abc4bcbef</sys_id>
-        <sys_mod_count>31</sys_mod_count>
+        <sys_mod_count>34</sys_mod_count>
         <sys_name>Time in a choice type</sys_name>
         <sys_overrides/>
         <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
@@ -65,7 +65,7 @@ populateTimes();]]></script>
         <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
         <sys_update_name>sys_script_client_6a52d0c51b7d2550dd39ed3abc4bcbef</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-31 10:34:56</sys_updated_on>
+        <sys_updated_on>2023-04-03 11:08:43</sys_updated_on>
         <table>x_980836_car_bookings</table>
         <type>onLoad</type>
         <ui_type>0</ui_type>

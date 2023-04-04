@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_980836_car.CarBooking</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>CarBooking</name>
+        <script><![CDATA[var CarBooking = Class.create();
+
+CarBooking.prototype = {
+
+  initialize: function () {},
+
+  getEndTimeChoices: function(startTimeValue) {
+    // Get the end time field object
+    var endTimeField = g_form.getControl('endtime');
+
+    // Get the start time value and convert to timestamp
+    var startTime = new Date(startTimeValue).getTime();
+
+    // Calculate the end time value as 3 hours after the start time
+    var endTime = new Date(startTime + 3 * 60 * 60 * 1000);
+
+    // Create an array of time values for every 15 minutes from start time to end time
+    var timeValues = [];
+    while (startTime <= endTime) {
+      timeValues.push(new Date(startTime).toLocaleTimeString('en-US', {hour12: false, hour: '2-digit', minute:'2-digit'}));
+      startTime += 15 * 60 * 1000;
+    }
+
+    // Clear existing choices from the end time field
+    endTimeField.options.length = 0;
+
+    // Add the new choices to the end time field
+    for (var i = 0; i < timeValues.length; i++) {
+      var timeValue = timeValues[i];
+      endTimeField.options.add(new Option(timeValue, timeValue));
+    }
+  },
+
+  type: 'CarBooking'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 10:48:35</sys_created_on>
+        <sys_id>b67910ef1bfd6d50dd39ed3abc4bcb01</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>CarBooking</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_include_b67910ef1bfd6d50dd39ed3abc4bcb01</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 10:40:11</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_include_b67910ef1bfd6d50dd39ed3abc4bcb01</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;false&lt;/active&gt;&lt;api_name&gt;x_980836_car.CarBooking&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;CarBooking&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var CarBooking = Class.create();
+
+CarBooking.prototype = {
+
+  initialize: function () {},
+
+  getEndTimeChoices: function(startTimeValue) {
+    // Get the end time field object
+    var endTimeField = g_form.getControl('endtime');
+
+    // Get the start time value and convert to timestamp
+    var startTime = new Date(startTimeValue).getTime();
+
+    // Calculate the end time value as 3 hours after the start time
+    var endTime = new Date(startTime + 3 * 60 * 60 * 1000);
+
+    // Create an array of time values for every 15 minutes from start time to end time
+    var timeValues = [];
+    while (startTime &lt;= endTime) {
+      timeValues.push(new Date(startTime).toLocaleTimeString('en-US', {hour12: false, hour: '2-digit', minute:'2-digit'}));
+      startTime += 15 * 60 * 1000;
+    }
+
+    // Clear existing choices from the end time field
+    endTimeField.options.length = 0;
+
+    // Add the new choices to the end time field
+    for (var i = 0; i &lt; timeValues.length; i++) {
+      var timeValue = timeValues[i];
+      endTimeField.options.add(new Option(timeValue, timeValue));
+    }
+  },
+
+  type: 'CarBooking'
+};
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-03-31 10:48:35&lt;/sys_created_on&gt;&lt;sys_id&gt;b67910ef1bfd6d50dd39ed3abc4bcb01&lt;/sys_id&gt;&lt;sys_mod_count&gt;7&lt;/sys_mod_count&gt;&lt;sys_name&gt;CarBooking&lt;/sys_name&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_b67910ef1bfd6d50dd39ed3abc4bcb01&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-03 10:40:11&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1575698281</payload_hash>
+        <record_name>CarBooking</record_name>
+        <reverted_from/>
+        <source>1b24a3cf1b7d2d50dd39ed3abc4bcb89</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 10:40:11</sys_created_on>
+        <sys_id>741537941bc66190dd39ed3abc4bcb52</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18746b3f38f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 10:40:11</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>7c15379410c661902d73dd6af427b351</update_guid>
+        <update_guid_history>7c15379410c661902d73dd6af427b351:1575698281,66443b541ac66190f47a9df57e0276fb:1485705176,0113f31466c6619039ebafdbc939d300:-1104301075,2411ff50efc66190e1557c25f0c2f757:1826659741,0d3120a71731ad50e87f5c2cbba10515:124471798,f0f06c27ab31ad503a48ac935e5aa2e2:-231832217,bf00e4277931ad50d1b471c2c38f1cfe:1808970424,aa3a58afc7fd6d5084983797f454ccc0:-1546118436</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 11:01:35</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>6b09fa53d7b048e4b933a16d4aaf3390</sys_id>
+        <sys_metadata>b67910ef1bfd6d50dd39ed3abc4bcb01</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CarBooking</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_include_b67910ef1bfd6d50dd39ed3abc4bcb01</sys_update_name>
+        <sys_update_version display_value="sys_script_include_b67910ef1bfd6d50dd39ed3abc4bcb01">741537941bc66190dd39ed3abc4bcb52</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 11:01:35</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

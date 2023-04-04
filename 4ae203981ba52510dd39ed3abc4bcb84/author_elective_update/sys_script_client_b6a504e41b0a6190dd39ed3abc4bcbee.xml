@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>test part 2</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+  if (isLoading || newValue == '') {
+    return;
+  }
+
+  var start = g_form.getValue('start_time');
+  var end = g_form.getValue('endtime');
+
+  if (end === '') {
+    end = addHours(start, 3);
+    g_form.setValue('endtime', end);
+  }
+}
+
+function addHours(time, hours) {
+  var date = new Date();
+  var parts = time.split(':');
+  date.setHours(parts[0]);
+  date.setMinutes(parts[1]);
+  date.setHours(date.getHours() + hours);
+  var hour = date.getHours().toString().padStart(2, '0');
+  var minute = date.getMinutes().toString().padStart(2, '0');
+  return hour + ':' + minute;
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 11:53:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b6a504e41b0a6190dd39ed3abc4bcbee</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>test part 2</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_client_b6a504e41b0a6190dd39ed3abc4bcbee</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 12:00:49</sys_updated_on>
+        <table>x_980836_car_bookings</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_client_b6a504e41b0a6190dd39ed3abc4bcbee</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;test part 2&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+  if (isLoading || newValue == '') {
+    return;
+  }
+
+  var start = g_form.getValue('start_time');
+  var end = g_form.getValue('endtime');
+
+  if (end === '') {
+    end = addHours(start, 3);
+    g_form.setValue('endtime', end);
+  }
+}
+
+function addHours(time, hours) {
+  var date = new Date();
+  var parts = time.split(':');
+  date.setHours(parts[0]);
+  date.setMinutes(parts[1]);
+  date.setHours(date.getHours() + hours);
+  var hour = date.getHours().toString().padStart(2, '0');
+  var minute = date.getMinutes().toString().padStart(2, '0');
+  return hour + ':' + minute;
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-04-03 11:53:03&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;b6a504e41b0a6190dd39ed3abc4bcbee&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;test part 2&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_b6a504e41b0a6190dd39ed3abc4bcbee&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-04-03 12:00:49&lt;/sys_updated_on&gt;&lt;table&gt;x_980836_car_bookings&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-705214318</payload_hash>
+        <record_name>test part 2</record_name>
+        <reverted_from/>
+        <source>1b24a3cf1b7d2d50dd39ed3abc4bcb89</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 12:00:50</sys_created_on>
+        <sys_id>42874c681b0a6190dd39ed3abc4bcba1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18746fdc9650000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 12:00:50</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>4a874c68ac0a6190b91c2d6e87f4a7a0</update_guid>
+        <update_guid_history>4a874c68ac0a6190b91c2d6e87f4a7a0:-705214318,d127c068300a6190abb5da46a6ebcb54:-208953134,ccf54828b60a6190ee36aa9f2bbda763:203025541,44c50428480a6190cff2d25235030dd5:-1871959225</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 12:11:25</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>bfdf36388e024d9cb3a07bb1adc9e371</sys_id>
+        <sys_metadata>b6a504e41b0a6190dd39ed3abc4bcbee</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test part 2</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent display_value="Bookings">b7c44f1c1ba52510dd39ed3abc4bcb4a</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_client_b6a504e41b0a6190dd39ed3abc4bcbee</sys_update_name>
+        <sys_update_version display_value="sys_script_client_b6a504e41b0a6190dd39ed3abc4bcbee">42874c681b0a6190dd39ed3abc4bcba1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 12:11:25</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

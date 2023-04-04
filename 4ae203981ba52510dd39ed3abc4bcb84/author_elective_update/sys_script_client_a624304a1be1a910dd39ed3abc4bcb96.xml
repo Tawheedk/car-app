@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Start one Booking per day</description>
+        <field>start_time</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Start One Booking Per Day</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+
+    }
+    var start_time = g_form.getValue('start_time');
+    var oneWeekFromNow = new Date();
+    var start = new Date(start_time);
+
+    // Booking more than a week in advance is not allowed
+    oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+    if (start > oneWeekFromNow) {
+        g_form.addErrorMessage('You can only book one week in advanced!');
+        g_form.setValue('start_time', oldValue);
+        return;
+    }
+
+    // Booking in the past, before todays date in not permitted
+    var now = new Date();
+    if (start < now) {
+        g_form.addErrorMessage('Start time cannot be in the past.');
+        g_form.setValue('start_time', oldValue);
+        return;
+    }
+
+    // Can't have 2 bookings by the same user in the same day
+    function checkDuplicateBookings() {
+        var userId = g_user.getUserID();
+        var startDate = new Date(g_form.getValue('start_time'));
+        startDate.setHours(0, 0, 0, 0);
+        var endDate = new Date(g_form.getValue('end_time'));
+        endDate.setHours(23, 59, 59, 999);
+
+//         var booking = new GlideRecord('x_980836_car_bookings');
+//         booking.addQuery('userid', userId);
+//         booking.addQuery('start_time', '>=', startDate);
+//         booking.addQuery('end_time', '<=', endDate);
+//         booking.query();
+
+
+
+//         if (booking.getRowCount() > 0) {
+//             g_form.addErrorMessage('You have already booked a parking spot for this day.');
+//             g_form.setValue('start_time', '');
+//             g_form.setValue('end_time', '');
+//         }
+
+//     }
+//     checkDuplicateBookings();
+}}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-14 10:53:52</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a624304a1be1a910dd39ed3abc4bcb96</sys_id>
+        <sys_mod_count>150</sys_mod_count>
+        <sys_name>Start One Booking Per Day</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_update_name>sys_script_client_a624304a1be1a910dd39ed3abc4bcb96</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-21 11:48:00</sys_updated_on>
+        <table>x_980836_car_bookings</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</application>
+        <file_path/>
+        <instance_id>380c47f9db05b78491232f17d4961973</instance_id>
+        <instance_name>dev83893</instance_name>
+        <name>sys_script_client_a624304a1be1a910dd39ed3abc4bcb96</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;Start one Booking per day&lt;/description&gt;&lt;field&gt;start_time&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Start One Booking Per Day&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+
+    }
+    var start_time = g_form.getValue('start_time');
+    var oneWeekFromNow = new Date();
+    var start = new Date(start_time);
+
+    // Booking more than a week in advance is not allowed
+    oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+    if (start &gt; oneWeekFromNow) {
+        g_form.addErrorMessage('You can only book one week in advanced!');
+        g_form.setValue('start_time', oldValue);
+        return;
+    }
+
+    // Booking in the past, before todays date in not permitted
+    var now = new Date();
+    if (start &lt; now) {
+        g_form.addErrorMessage('Start time cannot be in the past.');
+        g_form.setValue('start_time', oldValue);
+        return;
+    }
+
+    // Can't have 2 bookings by the same user in the same day
+    function checkDuplicateBookings() {
+        var userId = g_user.getUserID();
+        var startDate = new Date(g_form.getValue('start_time'));
+        startDate.setHours(0, 0, 0, 0);
+        var endDate = new Date(g_form.getValue('end_time'));
+        endDate.setHours(23, 59, 59, 999);
+
+//         var booking = new GlideRecord('x_980836_car_bookings');
+//         booking.addQuery('userid', userId);
+//         booking.addQuery('start_time', '&gt;=', startDate);
+//         booking.addQuery('end_time', '&lt;=', endDate);
+//         booking.query();
+
+
+
+//         if (booking.getRowCount() &gt; 0) {
+//             g_form.addErrorMessage('You have already booked a parking spot for this day.');
+//             g_form.setValue('start_time', '');
+//             g_form.setValue('end_time', '');
+//         }
+
+//     }
+//     checkDuplicateBookings();
+}}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-03-14 10:53:52&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;a624304a1be1a910dd39ed3abc4bcb96&lt;/sys_id&gt;&lt;sys_mod_count&gt;150&lt;/sys_mod_count&gt;&lt;sys_name&gt;Start One Booking Per Day&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Car" source="x_980836_car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Car"&gt;4ae203981ba52510dd39ed3abc4bcb84&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_a624304a1be1a910dd39ed3abc4bcb96&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-03-21 11:48:00&lt;/sys_updated_on&gt;&lt;table&gt;x_980836_car_bookings&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1617587727</payload_hash>
+        <record_name>Start One Booking Per Day</record_name>
+        <reverted_from/>
+        <source>46e203981ba52510dd39ed3abc4bcb86</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-21 11:48:01</sys_created_on>
+        <sys_id>a7e7819c1bb5a150dd39ed3abc4bcb6c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18703ff61780000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-21 11:48:01</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>efe7819ce3b5a15079aa7498a7bba36b</update_guid>
+        <update_guid_history>efe7819ce3b5a15079aa7498a7bba36b:1617587727,3797855ce7b5a150d1c5835075724122:-1337914134,f9f60d1065f5a150030e77a645e2c714:-1254821513,8aa1c1588db5a15070695e17363007f0:-211635065,8951c1d8d2b5a15049dc16a7c4e689c9:-764605062,ecee4dc3c0ed6d10b68734db864b857f:-211635065,e56a8d0316ed6d10037bac62151cd9c1:-764605062,913a090318ed6d10dada8cac3fdc125b:801134982,221a8503b9ed6d1052298d52675e3cf6:-1540013763,e1f9c9cf82ad6d104f93b3c84104ef02:1777361377,87c9cdcf19ad6d10ea9602f5dfb0a59b:-1540013763,536985cfbaad6d102c121de8e2a7c892:1777361377,20f881cfc9ad6d10d6a430d9b9883471:450548618,f1b80d8f7bad6d10622af5356cf7de63:-645877913,5868898fbbad6d101a4abd99c4eddc51:1777361377,989fa8c7636d6d1043186ed8bd9f9ca0:-14350777,896fec47606d6d10f3f19db2ddf98276:-591854302,0f8d24476f6d6d108c61a1be2938da2f:-2072938898,824d2447dd6d6d10384a2f75d8307143:116771523,b32de047c46d6d1037fb5d3f49de36de:1829157718,217964435d6d6d109ae91130b8f7948c:-577358000,3de72403646d6d10f50e2671a6b3fc22:1580091971,f767e4cf4c2d6d103231f9e7e6446dd6:-692115094,fbe6ac8fd12d6d109f47e7a6ab8a36ac:-1123483122,43d42c0f0d2d6d10c5d367bf96808f90:-1021607905,ff142ccbfa2d6d106854894f6aba895a:-1017509799,ee93a847aa2d6d101cf1479abe190a9c:-1021607905,c87324cb7d2d6d10e847fb438e7579db:-1461821062,11cd3fe2482d2d101107bc45803918ce:-1881440636,b2bdffe2452d2d10a4af7c51ea2c3a11:-419645992,798df362fb2d2d10f2f248dd7cbb1411:1648134650,a76d7b229f2d2d101d07b9ab9e67db82:1949786648,4eaa7362fc2d2d109011f0b4b952b843:-1119741925,038a376e22e92d10c50c2b913af62ed9:-842881785,607abf22dd2d2d104fd5a84541c0d649:1307886751,484a7fee22e92d1027f9d6f3799ba8af:-1672934842,1b897f6e29e92d108b59147872e2153e:82766180,0d593fee6ee92d10c233e15cd4e81668:1422267666,86c5f72eafe92d100fd68615e270e558:82766180,1695f7aa31e92d101782285b1f5fa34f:756600643,0d93bfe218e92d1063a970dc59a4c46e:1612222960,27c2bb6ab3e92d10f0e3bad170867adc:223835287,34b2f32688e92d1003791c8e1d0a904a:1223985369,cfc227aa13a92d109c7bc2920d6cf582:-1197529027,2d42af6a0ea92d10f54533c84bc6faa0:-536789287,b72c43ee02292d10557ba72d19139b40:-1680728517,1c8607ee21292d10f689f5c0c897a57a:917030251,bc4603ea14292d105777d91111100e32:-126975021,12d5cbaa0d292d10cd8b75655d26317c:1056640564,9fb58b2a5c292d10bf580833b0fa0ffa:802793038,66a503ea8e292d104e28d9cbcd6436f6:-918483269,68d24f56f1a9e910d5284fc5d932e57f:312708453,22a20796cea9e9104c0f11b790f37024:320859858,33420756dba9e91067c67bea0df8bf9d:1855843379,c822cf1634a9e91020b16bbbd13f5e4f:466919799,7e02c352dfa9e910c66a149698671ba9:-1984566769,6da1cf169fa9e9102ebed0a960e67c34:1095316848,d2210f16cca9e9107dde31f7604b9a9d:-1274732138,c7208b921fa9e910ca00c9a22a01cd24:1083679789,4ddd765262a9e9100ff40cde95b09342:1109641037,23ad7a5257a9e910219376e391cab875:1083679789,dc9d325229a9e910226316f0ae128389:-1228248116,cb6db212f0a9e910ecb00f839168c550:-1464118704,624db2522fa9e91052bf37c614a2b1cf:-472413474,0a1df6128ea9e910a788d25948d63369:-1409601217,52fc7e121fa9e9102e76dbf99ee82511:-1076957830,ec7872d6c069e910668b61f841d2ca62:-989353680,491b6e1e9929e910a79d249cad01bb79:-974192079,73e6aa1ebe29e910e915c245171973ea:-660433618,e5f42a5a0429e9100c1f974523644585:-2046298478,85742a5a4829e91093882f59df8e5a78:-986822588,e764e25a3929e910041a65fb44547ee7:-1431521257,2f73225aa829e91009db0a9dc57a05ef:-250345619,3643ea1a4929e910c21daa0a9acc8e15:-1301306424,5713225a1129e91031be69f22a7e95e6:1615969297,d79dd692ba29e9102c5b0a85d72f9b84:-2016493183,a7bd4ad20fe5e910866a0028b6268ac5:-1417744427,4aad0e52bfe5e9105f689ed75dc8f59f:-1749720990,0ca80e9e16a5e910d1074eeb268f6987:1118831194,16770a1e81a5e910d3742d186ffe839e:-1210537785,a916061eeca5e910de75b299bf7929c1:-1417744427,28e5ced694a5e91003078063472d83dd:313970669,af42821a19a5e910ab4f0230ff43c5e8:1920336739,7bfeb95663a5e910fc0c3aa25ed3f992:-1310447035,73be3956b3a5e9102fa9823929452762:-39876303,559ef1d246a5e910290ce12c7972fb0c:1348823826,762efd92c9a5e9104742c0d88a10678d:-717323144,3f1cf1d21ca5e9102176b7f1f2e39e01:-816852664,7d59398a53e5a9104f71ac4e937d8b9d:-214794264,137879c673e5a910d67bcd76adc76b81:-2069913477,93d5f5c614e5a91070e8a3f3c785f607:-214794264,3ea535860ee5a910669dcb94eb2face9:398967805,008571c6bee5a91089a03cff63c94c4f:-1633904051,d355f9462be5a91041c048e296351b56:-1747326133,ae357d46e6e5a910aeaa3473f28081f8:506765263,f30571869de5a9109425d72811e26900:-1103847157,679431860fe5a91052575e4e60d401aa:506765263,d854fd46b7e5a91028f35a3345378ad1:-1949356008,e924f1c286e5a910c161417875bf261c:-1835933926,36f3f906c9e5a910c1ad86c632f44317:-1916872801,76e2b90664e5a9107137cf479b17fba5:-429658563,4f81bd42ace5a910f66767103a6acbe2:-1476389064,77317d42c2e5a91076c0956933ff6df8:1544550905,4900fd420be5a9103218aff85782a3c9:614003212,2eefa5ce7ba5a91026a9686539656b0c:-1277371613,0cddedceb6a5a910034c058d7d8f61a1:614003212,214de5ce8ba5a91054d7d7b8d68ed25e:-476973247,73dc614e37a5a9103a6f0269fa81f2c7:832709350,5d37610a87a5a910bdd660528355816d:1987608376,29b4ed86fba5a9102a3fa737cc8d738b:-953416949,3c54ed8606a5a910e7628a9298cf1a17:1987608376,62ffd582fea5a9106dd1820bc07cadd3:-953416949,baed55027fa5a910cbac6f421b256218:1987608376,626b5d4ed365a9109a4bf505508fb87e:-1515727605,e54b154ece65a9103b1b5471870de1c4:79788216,0aa9ddca4365a9106f351dd3bf174d87:-1515727605,17995dca8565a910d77bf458c85ddb24:-190508405,0a69d9ca2f65a910c515ce882e86747b:-843247176,0e3955ca5f65a910200c0ab87c98ea1e:1429257935,6319d58a8465a91009821b29c9b242d0:1807593998,22b8594ad765a91036048a6fd7e419e4:932904249,b8d7d94aad65a910f53948a13db50534:-682718066,c857994a9465a9109b877fbf9709d1f1:-1089604262,9417114a5765a910499a3b7e3b411908:1735573563,4ae6514a1365a910c823f653e22484da:-144846566,22b6154a6665a910e770c76aef6913f2:-20311784,7476d90ab865a910eb625adcc3dca394:1909334997,4566150a9565a9106c9296398b83796a:837634858,71e59d8e4425a9106fc8dfecce0014e1:-176053106,ccb5d1ce4f25a910a32a1d9b7f024062:-1660398120,36d38dc62725a91091582948afbc4e13:47914661,51c309c60525a910933bdc8f61fce948:-1311234637,a1a3c186da25a910c862b796a2c70116:47914661,ad22cd468525a910d6c45a30de82da48:-1311234637,02e18d46b125a91084b6abc9eccfd71b:-811744782,aa114146c625a9106312f36c5ae07853:-931225420,15e089068125a910be7b4064c1db9a60:-1577549599,25a0c9c2b725a910c0836d12272bc565:1441362376,635001c27925a910ec7460ada54811d0:1971081788,7ecf3cc2b625a910bed3066c426153fa:-563648078,3caf30c28225a9108ec8b69a999284bf:986369944,995ff8820f25a910b7ad17f6c2ce9042:-1669399748,08feb8824b25a9106ce0694a5d4c3b04:827763442,839eb4829125a9109ccd08288f3db565:480105965,f11e30427d25a910fcb378f07960a54d:-1079890068,dcad748ed6e1a9109ff8f0447d9bdc45:-722556975,d0ec748e76e1a9107e088458a8c9a65c:551630362,237c7802fc25a910d1ef515c2cf6dbad:-1676798495,ff9a748e67e1a91050fb2ad2bcca8149:2075380198,13e9b4cac2e1a910f8687626c02449ad:1573027687,5a687c0a10e1a910c55aa37415c3266a:837432706</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-03 11:43:09</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>4cf9c95411aa45788aee4d9328b6bac4</sys_id>
+        <sys_metadata>a624304a1be1a910dd39ed3abc4bcb96</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Start One Booking Per Day</sys_name>
+        <sys_package display_value="Car" source="x_980836_car">4ae203981ba52510dd39ed3abc4bcb84</sys_package>
+        <sys_parent display_value="Bookings">b7c44f1c1ba52510dd39ed3abc4bcb4a</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Car">4ae203981ba52510dd39ed3abc4bcb84</sys_scope>
+        <sys_scope_delete display_value="">0fba4a2dbe83457387109ee589132f99</sys_scope_delete>
+        <sys_update_name>sys_script_client_a624304a1be1a910dd39ed3abc4bcb96</sys_update_name>
+        <sys_update_version display_value="sys_script_client_a624304a1be1a910dd39ed3abc4bcb96">a7e7819c1bb5a150dd39ed3abc4bcb6c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-03 11:43:09</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
